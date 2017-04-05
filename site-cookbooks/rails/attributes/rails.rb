@@ -1,2 +1,2 @@
 default['rails']['user']['name'] = "vagrant"
-default['rails']['version'] = "4.2"
+default['rails']['version'] = "4.0"

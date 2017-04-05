@@ -12,6 +12,6 @@ bash "gem install" do
   user "root"
   code <<-EOC
     su "#{node['rails']['user']['name']}" -l -c "rbenv exec gem install bundler"
-    su "#{node['rails']['user']['name']}" -l -c "rbenv exec gem install rails --version=\"~>#{node['rails']['version']}\""
+    su "#{node['rails']['user']['name']}" -l -c "rbenv exec gem install rails --version='~>#{node['rails']['version']}'"
   EOC
 end
