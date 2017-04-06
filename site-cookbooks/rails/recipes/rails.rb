@@ -7,6 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package "sqlite3" do
+  action :install
+  name "sqlite3"
+end
+
 # gemでインストールする
 bash "gem install" do
   user "root"
