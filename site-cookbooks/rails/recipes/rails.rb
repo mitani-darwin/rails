@@ -7,9 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "sqlite3" do
+package "sqlite" do
   action :install
-  name "sqlite3"
+  name "sqlite"
 end
 
 # gemでインストールする
