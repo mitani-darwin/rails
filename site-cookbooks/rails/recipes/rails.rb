@@ -9,7 +9,6 @@
 
 package "sqlite-devel" do
   action :install
-  name "sqlite-devel"
 end
 
 # gemでインストールする
