@@ -7,6 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package "sqlite-devel" do
+  action :install
+  name "sqlite-devel"
+end
+
 # gemでインストールする
 bash "gem install" do
   user "root"
