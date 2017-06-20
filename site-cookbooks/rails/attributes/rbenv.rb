@@ -1,4 +1,4 @@
-default['rbenv']['version'] = "2.2.3"
+default['rbenv']['version'] = "2.3.1"
 default['rbenv']['user']['name'] = "vagrant"
 default['rbenv']['user']['passwd'] = '$1$LRUCUVXQ$VolBjJ5dUy9QoAsfTIfzE0'
 
