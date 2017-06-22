@@ -9,7 +9,8 @@ default['rbenv']['package'] = [
   {name: 'readline-devel'},
   {name: 'zlib-devel'},
   {name: 'rsync'},
-  {name: 'bzip2'}
+  {name: 'bzip2'},
+  {name: 'gcc-c++'}
 ]
 
 default['rbenv']['git']['rbenv']['repository'] = "https://github.com/sstephenson/rbenv.git"
