@@ -10,7 +10,8 @@ default['rbenv']['package'] = [
   {name: 'zlib-devel'},
   {name: 'rsync'},
   {name: 'bzip2'},
-  {name: 'gcc-c++'}
+  {name: 'gcc-c++'},
+  {name: 'mariadb-devel'
 ]
 
 default['rbenv']['git']['rbenv']['repository'] = "https://github.com/sstephenson/rbenv.git"
