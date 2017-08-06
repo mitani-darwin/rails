@@ -12,7 +12,8 @@ default['rbenv']['package'] = [
   {name: 'bzip2'},
   {name: 'gcc-c++'},
   {name: 'mariadb-devel'},
-  {name: 'clang'}
+  {name: 'clang'},
+  {name: 'postgresql-devel'}
 ]
 
 default['rbenv']['git']['rbenv']['repository'] = "https://github.com/sstephenson/rbenv.git"
