@@ -11,7 +11,6 @@ default['rbenv']['package'] = [
   {name: 'rsync'},
   {name: 'bzip2'},
   {name: 'gcc-c++'},
-  {name: 'mariadb-devel'},
   {name: 'clang'},
   {name: 'postgresql-devel'}
 ]
