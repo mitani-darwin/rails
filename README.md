@@ -23,12 +23,13 @@ cd rails
 sudo knife solo bootstrap root@127.0.0.1
 ```
 
+```
 rails6系をインストールする場合には以下の通り
 curl -L -O https://packages.chef.io/files/stable/chef-workstation/20.9.158/el/8/chef-workstation-20.9.158-1.el7.x86_64.rpm
 rpm -ivh chef-workstation-20.9.158-1.el7.x86_64.rpm
 yum -y install git
 /opt/chef/embedded/bin/gem install knife-solo --no-ri --no-rdoc
-git clone https://github.com/mitani-darwin/rails.git
+git clone http://192.168.0.15/mitani/rails.git
 cd rails
 sudo knife solo bootstrap root@127.0.0.1
-
+```
