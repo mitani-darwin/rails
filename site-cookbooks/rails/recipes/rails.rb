@@ -14,8 +14,8 @@ end
 # gemでインストールする
 bash "gem install" do
   user "root"
-  code <<-EOC
+  code <<-EOS
     su "#{node['rails']['user']['name']}" -l -c "rbenv exec gem install bundler"
     su "#{node['rails']['user']['name']}" -l -c "rbenv exec gem install rails --version='~>#{node['rails']['version']}'"
-  EOC
+  EOS
 end
