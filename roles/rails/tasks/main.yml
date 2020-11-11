@@ -1,0 +1,14 @@
+---
+- name: debug user
+  debug:
+    msg: "{{ ansible_user }}"
+
+# rails bundlerのインストール
+- name: rails bundler install
+#  become: yes
+#  become_user: "{{ ansible_user }}"
+  command: su {{ ansible_user }} -l -c "rbenv exec gem install bundler"
+
+# railsのインストール
+- name: rails install
+  command: su {{ ansible_user }} -l -c "rbenv exec gem install rails --version={{ rails_version }}"
