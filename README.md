@@ -1,35 +1,43 @@
-chefを使ってrailsの開発環境を作成するプロジェクトです。
+Ansibleを使ってrailsの開発環境を作成するプロジェクトです。
 rubyはrbenvを使ってインストールをしています。
 
-rails4系をインストールする場合には下記の通り
+ディレクトリ構造は以下の通りになっています。
 ```
-curl -O https://packages.chef.io/files/stable/chef/12.18.31/el/7/chef-12.18.31-1.el7.x86_64.rpm
-rpm -ivh chef-12.18.31-1.el7.x86_64.rpm
-yum -y install git
-/opt/chef/embedded/bin/gem install knife-solo --no-ri --no-rdoc
-git clone -b rails4.x https://github.com/mitani-darwin/rails.git
-cd rails
-sudo knife solo bootstrap root@127.0.0.1
+rails
+├── LICENSE.txt
+├── README.md
+├── ansible.cfg ← インストールユーザ名が記載されています
+├── inventory
+│   └── hosts.ini ← インストール先のホストのIPアドレスが記載されています
+├── rails.yml
+└── roles
+    ├── rails
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── vars
+    │       └── main.yml ←　インストールするrailsのバージョンが記載されています
+    └── rbenv
+        ├── ansible-playbook rails.yml -e "ansible_user=mitani ruby_version=2.5.7 rails_version=5.2.4.3"
+        │   └── main.yml
+        └── vars
+            └── main.yml ←　インストールするrubyのバージョンが記載されています
 ```
+
+- 一時的にrubyのバージョンを変更する場合は、「ansible-playbook rails.yml -e "ruby_version=xxx"と引数でバージョンを渡す事で実現できます。
+- 一時的にrailsのバージョンを変更する場合は、「ansible-playbook rails.yml -e "rails_version=xxx"と引数でバージョンを渡す事で実現できます。
+- 一時的にインストールユーザを変更する場合は、「ansible-playbook rails.yml -e "ansible_user=xxx"と引数でバージョンを渡す事で実現できます。
+※ 上記の3つは同時に使用する事ができます
+　 例：ansible-playbook rails.yml -e "ansible_user=xxxx ruby_version=xxxx rails_version=xxxxx"
 
 rails5系をインストールする場合には下記の通り
 ```
-curl -O https://packages.chef.io/files/stable/chef/12.18.31/el/7/chef-12.18.31-1.el7.x86_64.rpm
-rpm -ivh chef-12.18.31-1.el7.x86_64.rpm
+デフォルトのrubyのバージョンは、2.5.8です。
+デフォルトのrailsのバージョンは、5.2.4.4です。
+
+
 yum -y install git
-/opt/chef/embedded/bin/gem install knife-solo --no-ri --no-rdoc
 git clone -b rails5.x https://github.com/mitani-darwin/rails.git
 cd rails
-sudo knife solo bootstrap root@127.0.0.1
+ansible-playbook rails.yml
 ```
 
-```
-rails6系をインストールする場合には以下の通り
-curl -L -O https://packages.chef.io/files/stable/chef-workstation/20.9.158/el/8/chef-workstation-20.9.158-1.el7.x86_64.rpm
-rpm -ivh chef-workstation-20.9.158-1.el7.x86_64.rpm
-yum -y install git
-/opt/chef/embedded/bin/gem install knife-solo --no-ri --no-rdoc
-git clone http://192.168.0.15/mitani/rails.git
-cd rails
-sudo knife solo bootstrap root@127.0.0.1
-```
