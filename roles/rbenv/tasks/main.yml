@@ -1,0 +1,68 @@
+---
+# packegeのインストール
+- name: install yum
+  yum:
+    name: "{{ install_pakage }}"
+    state: present
+
+# rbenvのダウンロード  
+- name: rbenv download
+  git:
+    repo: "{{ rbenv_repository }}"
+    dest: "{{ rbenv_directory }}"
+
+# rbenvディレクトリの権限変更
+- name: rbenv directory change
+  file:
+    path: "{{ rbenv_directory }}"
+    mode: "0777"
+
+# ruby-buildのダウンロード  
+- name: ruby-build download
+  git:
+    repo: "{{ ruby_build_repository }}"
+    dest: "{{ ruby_build_path }}"
+
+# ruby build directoryの作成
+- name: create ruby build directory
+  file:
+    path: "{{ ruby_build_path }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+    recurse: yes
+
+# 環境変数のチェック
+- name: env check
+  shell: 'grep {{ item.guard }} .bash_profile | cat'
+  register: check
+  loop: "{{ env }}"
+
+# 環境変数の設定
+- name: env setting
+  shell: echo {{ item.path }} >> .bash_profile
+  loop: "{{ check.results }}"
+  loop_control:
+    index_var: index
+  when: check.results[index].stdout == ""
+  loop: "{{ env }}"
+
+# rubyのバージョン確認
+- debug:
+    msg: "{{ ruby_version }}"
+
+# rubyの対象のバージョンがインストールされているかcheckする
+- name: ruby install check
+  stat: 
+    path: ./.rbenv/versions/{{ ruby_version }}/
+  register: ruby_install_check
+
+# rubyのビルド
+- name: ruby build
+  command: su {{ ansible_user }} -l -c "rbenv install {{ ruby_version }}"
+  when: ruby_install_check.stat['exists'] == false
+
+# rubyバージョンのglobal設定
+- name: ruby global setting
+  command: su {{ ansible_user }} -l -c "rbenv global {{ ruby_version }}"
+  when: ruby_install_check.stat['exists'] == false
