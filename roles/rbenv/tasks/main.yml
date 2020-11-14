@@ -47,6 +47,10 @@
   when: check.results[index].stdout == ""
   loop: "{{ env }}"
 
+# rubyのバージョン確認
+- debug:
+    msg: "{{ ruby_version }}"
+
 # rubyの対象のバージョンがインストールされているかcheckする
 - name: ruby install check
   stat: 

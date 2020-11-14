@@ -9,6 +9,10 @@
 #  become_user: "{{ ansible_user }}"
   command: su {{ ansible_user }} -l -c "rbenv exec gem install bundler"
 
+# railsのバージョン確認
+- debug:
+    msg: "{{ rails_version }}"
+
 # railsのインストール
 - name: rails install
   command: su {{ ansible_user }} -l -c "rbenv exec gem install rails --version={{ rails_version }}"
