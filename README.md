@@ -17,7 +17,7 @@ rails
     │   └── vars
     │       └── main.yml ←　インストールするrailsのバージョンが記載されています
     └── rbenv
-        ├── ansible-playbook rails.yml -e "ansible_user=mitani ruby_version=2.5.7 rails_version=5.2.4.3"
+        ├── ansible-playbook rails.yml -e "ansible_user=xxxxx ruby_version=x.x.x rails_version=x.x.x.x"
         │   └── main.yml
         └── vars
             └── main.yml ←　インストールするrubyのバージョンが記載されています
