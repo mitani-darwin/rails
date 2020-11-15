@@ -39,4 +39,13 @@ git clone -b rails5.x https://github.com/mitani-darwin/rails.git
 cd rails
 ansible-playbook rails.yml
 ```
+rails5系をインストールする場合には下記の通り
+```
+デフォルトのrubyのバージョンは、2.5.8です。
+デフォルトのrailsのバージョンは、5.2.4.4です。
+
+yum -y install git
+git clone -b rails5.x https://github.com/mitani-darwin/rails.git
+cd rails
+ansible-playbook rails.yml
 
