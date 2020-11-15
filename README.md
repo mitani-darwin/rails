@@ -35,7 +35,7 @@ rails6系をインストールする場合には下記の通り
 デフォルトのrailsのバージョンは、6.0.3.4です。
 
 yum -y install git
-git clone -b rails5.x https://github.com/mitani-darwin/rails.git
+git clone -b rails6.x https://github.com/mitani-darwin/rails.git
 cd rails
 ansible-playbook rails.yml
 
