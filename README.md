@@ -29,17 +29,6 @@ rails
 ※ 上記の3つは同時に使用する事ができます
 　 例：ansible-playbook rails.yml -e "ansible_user=xxxx ruby_version=xxxx rails_version=xxxxx"
 
-rails5系をインストールする場合には下記の通り
-```
-デフォルトのrubyのバージョンは、2.5.8です。
-デフォルトのrailsのバージョンは、5.2.4.4です。
-
-yum -y install git
-git clone -b rails5.x https://github.com/mitani-darwin/rails.git
-cd rails
-ansible-playbook rails.yml
-```
-
 rails6系をインストールする場合には下記の通り
 ```
 デフォルトのrubyのバージョンは、2.7.2です。
