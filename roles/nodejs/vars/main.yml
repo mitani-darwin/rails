@@ -1,9 +1,12 @@
 ###############################################################################
 ##                                                                           ##
-## railsをインストールするに当たって必要な情報を記載する                             ## 
+## node.jsをインストールするに当たって必要な情報を記載する                           ## 
 ## Copyright Toru MITANI(mitani@daisuke2.com)                                ##
 ##                                                                           ##
 ###############################################################################
 
-# Ruby On Rails version
-rails_version: "6.0.3.4"
+# node.js avi_api_version
+nodejs_version: "14.15.0"
+
+install_pakage:
+  - "npm"

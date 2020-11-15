@@ -4,5 +4,7 @@
   remote_user: vagrant
   become_method: sudo
   roles:
+    - nodejs
+    - yarn
     - rbenv
     - rails
