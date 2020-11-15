@@ -1,0 +1,19 @@
+---
+
+# packegeのインストール
+- name: install yum
+  yum:
+    name: "{{ install_pakage }}"
+    state: present
+
+# nパッケージのインストール
+- name: n package
+  command: "npm install -g n"
+
+# node.jsのバージョン確認
+- debug: msg="{{ nodejs_version }}"
+
+# node.jsのインストール
+- name: node.js install
+  become: yes
+  command: "/usr/local/bin/n {{ nodejs_version }}"
